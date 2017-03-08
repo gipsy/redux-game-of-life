@@ -15,17 +15,13 @@ import Footer from 'components/Footer';
 import withProgressBar from 'components/ProgressBar';
 
 const AppWrapper = styled.div`
-  max-width: calc(768px + 16px * 2);
-  margin: 0 auto;
-  display: flex;
   min-height: 100%;
-  padding: 0 16px;
-  flex-direction: column;
+  padding: 50px 16px;
 `;
 
 export function App(props) {
   return (
-    <AppWrapper>
+    <AppWrapper className="container">
       <Helmet
         titleTemplate="%s - React.js Boilerplate"
         defaultTitle="React.js Boilerplate"
@@ -33,8 +29,14 @@ export function App(props) {
           { name: 'description', content: 'A React.js Boilerplate application' },
         ]}
       />
-      <Header />
-      {React.Children.toArray(props.children)}
+      <div className="row">
+        <div className="col-sm-3">
+          <Header />
+        </div>
+        <div className="col-sm-9">
+          {React.Children.toArray(props.children)}
+        </div>
+      </div>
       <Footer />
     </AppWrapper>
   );

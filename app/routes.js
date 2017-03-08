@@ -39,6 +39,25 @@ export default function createRoutes(store) {
         importModules.catch(errorLoading);
       },
     }, {
+      path: '/game',
+      name: 'game',
+      getComponent(nextState, cb) {
+        const importModules = Promise.all([
+          import('containers/GamePage/reducer'),
+          import('containers/GamePage'),
+        ]);
+
+        const renderRoute = loadModule(cb);
+
+        importModules.then(([reducer, component]) => {
+          injectReducer('game', reducer.default);
+
+          renderRoute(component);
+        });
+
+        importModules.catch(errorLoading);
+      },
+    }, {
       path: '/features',
       name: 'features',
       getComponent(nextState, cb) {

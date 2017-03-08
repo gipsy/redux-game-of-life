@@ -10,6 +10,10 @@ export default defineMessages({
     id: 'boilerplate.components.Header.home',
     defaultMessage: 'Home',
   },
+  game: {
+    id: 'boilerplate.components.Header.game',
+    defaultMessage: 'Game',
+  },
   features: {
     id: 'boilerplate.components.Header.features',
     defaultMessage: 'Features',
